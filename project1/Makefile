@@ -1,15 +1,20 @@
 CFLAGS+=-std=c99 -O3
 LDLIBS=-lm
-TARGETS=zeta0/zeta0 mach0/mach0
-NITER = 3
+TARGETS=zeta0/zetautest mach0/machutest zeta0/estimatepi mach0/estimatepi
+TEST_NITER = 3
+NITER = 1000000
 
 all: ${TARGETS}
 
+utest:${TARGETS}
+	./zeta0/zetautest ${TEST_NITER}
+	./mach0/machutest ${TEST_NITER}
+
 runzeta: ${TARGETS}
-	./zeta0/zeta0 ${NITER}
+	./zeta0/estimatepi ${NITER}
 
 runmach: ${TARGETS}
-	./mach0/mach0 ${NITER}
+	./mach0/estimatepi ${NITER}
 
 clean:
 	-rm -f ${TARGETS}

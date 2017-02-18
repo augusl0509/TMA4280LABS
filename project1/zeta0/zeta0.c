@@ -2,30 +2,24 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main(int argc, char **argv) {
+double riemann_zeta_function(double number_of_iterations);
+double estimate_pi(double number_of_iterations);
 
-    double number_of_iterations;
+
+double estimate_pi(double number_of_iterations){
     double zeta_sum, pi;
 
-    if (argc < 2) {
-        fprintf(stderr, "You must pass in the number of iterations you want for the sum!\n");
-        exit(1);
-    }
+    zeta_sum = riemann_zeta_function(number_of_iterations);
+    pi = sqrt(6.0 * zeta_sum);
 
-    number_of_iterations = atoi(argv[1]);
+    return pi;
+}
 
-    printf("Number of iterations = %d\n", (int) number_of_iterations);
+double riemann_zeta_function(double number_of_iterations){
+    double zeta_sum = 0;
 
-    zeta_sum = 0;
-
-    for (double iteration = 1; iteration < number_of_iterations; iteration++) {
+    for (double iteration = 1; iteration <= number_of_iterations; iteration++) {
         zeta_sum += 1.0/(iteration*iteration);
     }
-
-    pi = sqrt(zeta_sum*6.0);
-
-    printf("Riemann zeta sum : %.10f\n", zeta_sum);
-    printf("Pi : %.10f\n", pi);
-
-    return 0;
+    return zeta_sum;
 }
