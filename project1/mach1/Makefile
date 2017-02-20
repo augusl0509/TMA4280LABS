@@ -1,12 +1,15 @@
 CC=mpicc
-CFLAGS+=-std=c99 -O3
+CFLAGS+=-std=c99
 LDLIBS=-lm
-TARGETS=estimatepi
-NP=8
+TARGETS=estimatepi machvtest
+NP=4
 all: ${TARGETS}
 
 run: ${TARGETS}
 	mpirun -np ${NP} estimatepi
+
+vtest: ${TARGETS}
+	mpirun -np ${NP} machvtest
 
 clean:
 	-rm -f ${TARGETS}
