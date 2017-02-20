@@ -10,7 +10,7 @@ utest: ${TARGETS}
 	./zeta0/zetautest ${TEST_NITER}
 	./mach0/machutest ${TEST_NITER}
 
-vtest: zeta0/zetavtest
+vtest: zeta0/zetavtest mach0/machvtest
 	./zeta0/zetavtest
 	./mach0/machvtest
 
