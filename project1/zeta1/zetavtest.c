@@ -17,7 +17,7 @@ int main ( int argc, char **argv ){
     int size, rank;
     double pi_estimate, error;
     int number_of_iterations;
-    int number_of_tests = 29;
+    int number_of_tests = 24;
 
     MPI_Init ( &argc, &argv );
     MPI_Comm_size ( MPI_COMM_WORLD, &size );
@@ -27,12 +27,20 @@ int main ( int argc, char **argv ){
         printf("Running verification tests for pi estimation with riemann zeta function using MPI\n");
     }
 
+    double start, end;
+
     for (int k = 1; k <= number_of_tests; k++) {
         number_of_iterations = pow(2,k);
+
+        start = MPI_Wtime();
+
         pi_estimate = estimate_pi(size, rank, number_of_iterations);
         error = PI - pi_estimate;
+
+        end = MPI_Wtime();
+
         if (rank == 0) {
-            printf("Test : %.d\tNumber of iteration : %10d\tEstimate : %.16f\t\tError : %.16f\n", k, number_of_iterations, pi_estimate, error);
+            printf("Test : %.d\tNumber of iteration : %10d\tEstimate : %.16f\tError : %.16f\tTime : %f\n", k, number_of_iterations, pi_estimate, error, (end-start));
         }
     }
 
