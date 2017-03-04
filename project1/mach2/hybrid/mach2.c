@@ -3,6 +3,7 @@
 #include <math.h>
 
 #include <mpi.h>
+#include <omp.h>
 
 double arctan(double x, double start, double end, double* sum_elements);
 double calc_pi_from_arctan(double arctan1_5, double arctan1_239);
@@ -45,6 +46,7 @@ int distribute_vector_elements(int size, int rank, double* global_array, double*
 double sum_elements(double* elements, int number_of_elements){
     double sum = 0;
 
+    #pragma omp parallel for reduction(+:sum)
     for (int i = 0; i < number_of_elements; i++) {
         sum += elements[i];
     }
@@ -61,9 +63,13 @@ double calc_pi_from_arctan(double arctan1_5, double arctan1_239){
 
 double arctan(double x, double start, double end, double* sum_elements){
     double mach_sum = 0;
-    double iteration = start;
 
-    for (iteration = 0; iteration < end; iteration++) {
+    int i = (int) start;
+    int end_index = (int) end;
+
+    #pragma omp parallel for
+    for (i = 0; i < end_index; i++) {
+        double iteration = (int) i;
         if ((int)iteration%2) {
             sum_elements[(int)iteration] = -pow(x,((2.0*iteration) + 1)) / ((2.0*iteration) + 1);
         }

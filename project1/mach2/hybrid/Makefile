@@ -1,12 +1,11 @@
 CC=mpicc
 CFLAGS+=-std=c99
-LDLIBS=-lm
-TARGETS=zetavtest machvtest
+LDLIBS=-lm -fopenmp
+TARGETS=machvtest
 NP=4
 all: ${TARGETS}
 
 vtest: ${TARGETS}
-	mpirun -np ${NP} zetavtest
 	mpirun -np ${NP} machvtest
 
 clean:

@@ -3,6 +3,7 @@
 #include <math.h>
 
 #include <mpi.h>
+#include <omp.h>
 
 int generate_zeta_elements(double start, double end, double* sum_elements);
 double calc_pi_from_zetasum(double zetasum);
@@ -45,6 +46,7 @@ int distribute_vector_elements(int size, int rank, double* global_array, double*
 double sum_elements(double* elements, int number_of_elements){
     double sum = 0;
 
+    #pragma omp parallel for reduction(+:sum)
     for (int i = 0; i < number_of_elements; i++) {
         sum += elements[i];
     }
@@ -60,9 +62,12 @@ double calc_pi_from_zetasum(double zetasum){
 }
 
 int generate_zeta_elements(double start, double end, double* sum_elements){
-    double iteration = start;
+    int i = (int) start;
+    int end_index = (int) end;
 
-    for (iteration = 1; iteration <= end; iteration++) {
+    #pragma omp parallel for
+    for (i = 1; i <= end_index; i++) {
+        double iteration = (double) i;
         sum_elements[(int)iteration-1] = 1 / (iteration * iteration);
     }
     return 0;

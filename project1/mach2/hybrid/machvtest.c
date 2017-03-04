@@ -4,7 +4,7 @@
 
 #include <mpi.h>
 
-#include "mach1.c"
+#include "mach2.c"
 
 double* sum_elements1_239;
 double* sum_elements1_5;

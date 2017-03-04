@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <sys/time.h>
-
 #include "mach0.c"
 
 double walltime() {
@@ -33,7 +32,7 @@ int main(int argc, char **argv) {
 
     end = walltime();
 
-    printf("Pi : %.16f\tTime : %f", pi, end-start);
+    printf("Pi : %.16f\tTime : %f\n", pi, end-start);
 
     return 0;
 }

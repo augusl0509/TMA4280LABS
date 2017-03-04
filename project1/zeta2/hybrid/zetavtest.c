@@ -4,7 +4,7 @@
 
 #include <mpi.h>
 
-#include "zeta1.c"
+#include "zeta2.c"
 
 const double PI = 3.141592653589793238463;
 
