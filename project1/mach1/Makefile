@@ -3,10 +3,11 @@ CFLAGS+=-std=c99
 LDLIBS=-lm
 TARGETS=estimatepi machvtest
 NP=4
+NITER = 1000000
 all: ${TARGETS}
 
 run: ${TARGETS}
-	mpirun -np ${NP} estimatepi
+	mpirun -np ${NP} estimatepi ${NITER}
 
 vtest: ${TARGETS}
 	mpirun -np ${NP} machvtest

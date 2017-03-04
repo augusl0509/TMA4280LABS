@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "mach1.c"
+#include "zeta2.c"
 
 int main(int argc, char **argv) {
 
