@@ -3,7 +3,7 @@
 #PBS -N estimatepi_zeta2_omp
 #PBS -A imf_tma4280
 #PBS -l walltime=00:01:00
-#PBS -l select=1:ncpus=32:ompthreads:16
+#PBS -l select=1:ncpus=32:ompthreads=16
 
 export OMP_NUM_THREADS=16
 
