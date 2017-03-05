@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 
     number_of_iterations = atoi(argv[1]);
     if (rank == 0) {
-        printf("Number of iterations = %d\n", (int) number_of_iterations);
+        printf("Number of iterations = %d\n\n", (int) number_of_iterations);
     }
 
     double start, end;

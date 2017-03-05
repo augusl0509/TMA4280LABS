@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
     printf("Result was : %.10f\n", pi_estimate);
 
     if (expected_result - pi_estimate <= 0.00000000001) {
-        printf("Zeta unit test : Success\n");
+        printf("Zeta unit test : Success\n\n");
     }
     else{
         printf("Zeta unit test : Fail\n");

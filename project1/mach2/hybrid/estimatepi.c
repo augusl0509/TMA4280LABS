@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     end = MPI_Wtime();
 
     if (rank == 0) {
-        printf("Pi : %.16f\tTime : %f\n", pi, end-start);
+        printf("Pi : %.16f\tTime : %f\n\n", pi, end-start);
     }
 
     MPI_Finalize();

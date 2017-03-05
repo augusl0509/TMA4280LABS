@@ -16,7 +16,7 @@ int main ( int argc, char **argv ){
     int size, rank;
     double pi_estimate, error;
     int number_of_iterations;
-    int number_of_tests = 24;
+    int number_of_tests = 28;
 
     MPI_Init ( &argc, &argv );
     MPI_Comm_size ( MPI_COMM_WORLD, &size );

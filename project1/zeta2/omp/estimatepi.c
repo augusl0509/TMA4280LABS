@@ -29,12 +29,12 @@ int main(int argc, char **argv) {
     double start, end;
 
     start = walltime();
-    
+
     pi = estimate_pi(number_of_iterations);
 
     end = walltime();
 
-    printf("Pi : %.16f\tTime : %f\n", pi, end-start);
+    printf("Pi : %.16f\tTime : %f\n\n", pi, end-start);
 
     return 0;
 }

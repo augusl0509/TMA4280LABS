@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 
     pi_estimate = estimate_pi(number_of_iterations);
 
-    printf("Result was : %.10f\n", pi_estimate);
+    printf("Result was : %.10f\n\n", pi_estimate);
 
     if (expected_result - pi_estimate <= 0.00000000001) {
         printf("Mach unit test : Success\n");

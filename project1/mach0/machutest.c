@@ -18,10 +18,10 @@ int main(int argc, char **argv) {
     printf("Result was : %.10f\n", pi_estimate);
 
     if (expected_result - pi_estimate <= 0.00000000001) {
-        printf("Mach unit test : Success\n");
+        printf("Mach unit test : Success\n\n");
     }
     else{
-        printf("Mach unit test : Fail\n");
+        printf("Mach unit test : Fail\n\n");
     }
 
     return 0;

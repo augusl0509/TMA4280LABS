@@ -17,7 +17,7 @@ double walltime() {
 int main(int argc, char **argv) {
 
     double number_of_iterations, pi_estimate, error;
-    int number_of_tests = 24;
+    int number_of_tests = 28;
 
     printf("Running verification tests for pi estimation with riemann zeta function\n");
 

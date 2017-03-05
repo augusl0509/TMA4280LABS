@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 
     end = walltime();
 
-    printf("Pi : %.16f\tTime : %f", pi, end-start);
+    printf("Pi : %.16f\tTime : %f\n\n", pi, end-start);
 
     return 0;
 }
