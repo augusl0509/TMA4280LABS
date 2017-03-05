@@ -1,0 +1,31 @@
+Number of iterations = 1000000
+Pi : 3.1415926535897940	Time : 0.212226
+
+Running verification tests for pi estimation with machin formula using MPI
+Test : 1	Number of iteration :          2	Estimate : 0.0000000000000000	Error : 3.1415926535897931	Time : 0.000865
+Test : 2	Number of iteration :          4	Estimate : 0.0000000000000000	Error : 3.1415926535897931	Time : 0.000031
+Test : 3	Number of iteration :          8	Estimate : 0.0000000000000000	Error : 3.1415926535897931	Time : 0.000030
+Test : 4	Number of iteration :         16	Estimate : 3.1415926535897931	Error : 0.0000000000000000	Time : 0.001370
+Test : 5	Number of iteration :         32	Estimate : 3.1415926535897931	Error : 0.0000000000000000	Time : 0.000035
+Test : 6	Number of iteration :         64	Estimate : 3.1415926535897931	Error : 0.0000000000000000	Time : 0.000045
+Test : 7	Number of iteration :        128	Estimate : 3.1415926535897936	Error : -0.0000000000000004	Time : 0.000076
+Test : 8	Number of iteration :        256	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.000221
+Test : 9	Number of iteration :        512	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.000201
+Test : 10	Number of iteration :       1024	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.000355
+Test : 11	Number of iteration :       2048	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.001069
+Test : 12	Number of iteration :       4096	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.001477
+Test : 13	Number of iteration :       8192	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.002933
+Test : 14	Number of iteration :      16384	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.005550
+Test : 15	Number of iteration :      32768	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.010563
+Test : 16	Number of iteration :      65536	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.019382
+Test : 17	Number of iteration :     131072	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.033931
+Test : 18	Number of iteration :     262144	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.053958
+Test : 19	Number of iteration :     524288	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.093390
+Test : 20	Number of iteration :    1048576	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.184894
+Test : 21	Number of iteration :    2097152	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.365736
+Test : 22	Number of iteration :    4194304	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 0.731970
+Test : 23	Number of iteration :    8388608	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 1.457417
+Test : 24	Number of iteration :   16777216	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 2.903621
+Test : 25	Number of iteration :   33554432	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 5.807646
+Test : 26	Number of iteration :   67108864	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 11.611837
+Test : 27	Number of iteration :  134217728	Estimate : 3.1415926535897940	Error : -0.0000000000000009	Time : 23.217720

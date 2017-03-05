@@ -1,0 +1,32 @@
+Number of iterations = 1000000
+
+Pi : 3.1415916986604899	Time : 0.016931
+Running verification tests for pi estimation with riemann zeta function using MPI
+Test : 1	Number of iteration :          2	Estimate : 0.0000000000000000	Error : 3.1415926535897931	Time : 0.000729
+Test : 2	Number of iteration :          4	Estimate : 0.0000000000000000	Error : 3.1415926535897931	Time : 0.000053
+Test : 3	Number of iteration :          8	Estimate : 0.0000000000000000	Error : 3.1415926535897931	Time : 0.000015
+Test : 4	Number of iteration :         16	Estimate : 3.0831930203394537	Error : 0.0583996332503394	Time : 0.001326
+Test : 5	Number of iteration :         32	Estimate : 3.1120738386110869	Error : 0.0295188149787062	Time : 0.000011
+Test : 6	Number of iteration :         64	Estimate : 3.1267527897890051	Error : 0.0148398638007881	Time : 0.000016
+Test : 7	Number of iteration :        128	Estimate : 3.1341525217715187	Error : 0.0074401318182744	Time : 0.000019
+Test : 8	Number of iteration :        256	Estimate : 3.1378675271355996	Error : 0.0037251264541935	Time : 0.000013
+Test : 9	Number of iteration :        512	Estimate : 3.1397288239162600	Error : 0.0018638296735332	Time : 0.000316
+Test : 10	Number of iteration :       1024	Estimate : 3.1406604219783110	Error : 0.0009322316114821	Time : 0.000052
+Test : 11	Number of iteration :       2048	Estimate : 3.1411264585700267	Error : 0.0004661950197664	Time : 0.000056
+Test : 12	Number of iteration :       4096	Estimate : 3.1413595362738627	Error : 0.0002331173159305	Time : 0.000072
+Test : 13	Number of iteration :       8192	Estimate : 3.1414760899799989	Error : 0.0001165636097942	Time : 0.000299
+Test : 14	Number of iteration :      16384	Estimate : 3.1415343705469003	Error : 0.0000582830428928	Time : 0.000446
+Test : 15	Number of iteration :      32768	Estimate : 3.1415635117588452	Error : 0.0000291418309479	Time : 0.000637
+Test : 16	Number of iteration :      65536	Estimate : 3.1415780825969501	Error : 0.0000145709928430	Time : 0.001284
+Test : 17	Number of iteration :     131072	Estimate : 3.1415853680740238	Error : 0.0000072855157693	Time : 0.002405
+Test : 18	Number of iteration :     262144	Estimate : 3.1415890108270736	Error : 0.0000036427627195	Time : 0.004853
+Test : 19	Number of iteration :     524288	Estimate : 3.1415908322072217	Error : 0.0000018213825714	Time : 0.008188
+Test : 20	Number of iteration :    1048576	Estimate : 3.1415917428982270	Error : 0.0000009106915662	Time : 0.014628
+Test : 21	Number of iteration :    2097152	Estimate : 3.1415921982439490	Error : 0.0000004553458441	Time : 0.025413
+Test : 22	Number of iteration :    4194304	Estimate : 3.1415924259168646	Error : 0.0000002276729285	Time : 0.044641
+Test : 23	Number of iteration :    8388608	Estimate : 3.1415925397533435	Error : 0.0000001138364496	Time : 0.072955
+Test : 24	Number of iteration :   16777216	Estimate : 3.1415925966715901	Error : 0.0000000569182030	Time : 0.145713
+Test : 25	Number of iteration :   33554432	Estimate : 3.1415926251307034	Error : 0.0000000284590898	Time : 0.291691
+Test : 26	Number of iteration :   67108864	Estimate : 3.1415926393601987	Error : 0.0000000142295944	Time : 0.593954
+Test : 27	Number of iteration :  134217728	Estimate : 3.1415926464744723	Error : 0.0000000071153208	Time : 1.197266
+Test : 28	Number of iteration :  268435456	Estimate : 3.1415926500278117	Error : 0.0000000035619814	Time : 2.495863
