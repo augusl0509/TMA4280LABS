@@ -1,8 +1,0 @@
-Lmod has detected the following error: These module(s) exist but cannot be
-loaded as requested: "openmpi"
-
-   Try: "module spider openmpi" to see how to load the module(s).
-
-
-
-
