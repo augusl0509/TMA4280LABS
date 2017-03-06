@@ -20,6 +20,11 @@ int main(int argc, char **argv) {
     }
 
     number_of_iterations = atoi(argv[1]);
+
+    if (!is_power_of_two(size)) {
+        fprintf(stderr, "Number of processes has to be a power of 2!\n");
+        exit(1);
+    }
     if (rank == 0) {
         printf("Number of iterations = %d\n\n", (int) number_of_iterations);
     }

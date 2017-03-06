@@ -30,6 +30,7 @@ int main ( int argc, char **argv ){
     double start, end;
 
     for (int k = 1; k <= number_of_tests; k++) {
+
         number_of_iterations = pow(2,k);
 
         start = MPI_Wtime();
