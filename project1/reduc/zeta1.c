@@ -7,8 +7,9 @@
 int generate_zeta_elements(double start, double end, double* sum_elements);
 double calc_pi_from_zetasum(double zetasum);
 double sum_elements(double* elements, int number_of_elements);
-int distribute_vector_elements(int size, int rank, double* global_array, double*local_array, int local_array_length);
-int determine_local_iterations(int iterations, int size);
+int distribute_vector_elements(int size, int rank, double* global_array, double*local_array, int iterations);
+int determine_local_iterations(int iterations, int size, int rank);
+int determine_global_index(int number_of_iterations, int size, int rank);
 int is_power_of_two(int number);
 void recursive_doubling_sum(int rank, int size, double* local_riemann_zeta_sum);
 
@@ -18,27 +19,42 @@ int is_power_of_two(int number){
 }
 
 
-int determine_local_iterations(int iterations, int size){
-    if (!is_power_of_two(size)) {
-        fprintf(stderr, "Both the number of processes and the number of interations has to be a power of 2!\n");
-        exit(1);
+int determine_local_iterations(int iterations, int size, int rank){
+    int local_iter;
+    if (rank <= (iterations % (size-1))) {
+        local_iter = (iterations / (size-1)) + 1;
     }
-    return iterations/size;
+    else{
+        local_iter = iterations / (size-1);
+    }
+
+    return local_iter;
 }
 
-int distribute_vector_elements(int size, int rank, double* global_array, double* local_array, int local_array_length){
-    if (rank ==0) {
-        MPI_Sendrecv(
-            global_array, local_array_length, MPI_DOUBLE, 0, 1,
-            local_array, local_array_length, MPI_DOUBLE, 0, 1,
-            MPI_COMM_WORLD, NULL);
+int determine_global_index(int number_of_iterations, int size, int rank){
+    int global_index;
+    if (rank <= number_of_iterations % (size - 1)) {
+        global_index = (rank-1) * (number_of_iterations / (size - 1)) + (rank-1);
+    }
+    else{
+        global_index = (rank-1) * (number_of_iterations / (size - 1)) + (number_of_iterations % (size - 1));
+    }
+    return global_index;
+}
 
+int distribute_vector_elements(int size, int rank, double* global_array, double* local_array, int iterations){
+    int local_length = determine_local_iterations(iterations, size, rank);
+    if (rank ==0) {
+
+        int global_index = determine_global_index(iterations, size, rank);
         for (int i = 1; i < size; i++) {
-            MPI_Send(&global_array[i*local_array_length], local_array_length, MPI_DOUBLE, i, 1, MPI_COMM_WORLD);
+            local_length = determine_local_iterations(iterations, size, i);
+            global_index = determine_global_index(iterations, size, i);
+            MPI_Ssend(&global_array[global_index], local_length, MPI_DOUBLE, i, 1, MPI_COMM_WORLD);
         }
     }
     else{
-        MPI_Recv(local_array, local_array_length, MPI_DOUBLE, 0, 1, MPI_COMM_WORLD, NULL);
+        MPI_Recv(local_array, local_length, MPI_DOUBLE, 0, 1, MPI_COMM_WORLD, NULL);
     }
 }
 
@@ -111,8 +127,7 @@ double estimate_pi( int size, int rank, int number_of_iterations ){
 
     double* local_riemann_zeta_elements;
 
-    local_number_of_iterations = determine_local_iterations(number_of_iterations, size);
-
+    local_number_of_iterations = determine_local_iterations(number_of_iterations, size, rank);
     local_riemann_zeta_elements = (double*) malloc(local_number_of_iterations*sizeof(double));
 
     if (rank == 0) {
@@ -120,9 +135,12 @@ double estimate_pi( int size, int rank, int number_of_iterations ){
         generate_zeta_elements(0.0, (double) number_of_iterations, riemann_zeta_elements);
     }
 
-    distribute_vector_elements(size, rank, riemann_zeta_elements, local_riemann_zeta_elements, local_number_of_iterations);
+    distribute_vector_elements(size, rank, riemann_zeta_elements, local_riemann_zeta_elements, number_of_iterations);
 
-    local_riemann_zeta_sum = sum_elements(local_riemann_zeta_elements, local_number_of_iterations);
+    local_riemann_zeta_sum = 0;
+    if (rank != 0) {
+        local_riemann_zeta_sum = sum_elements(local_riemann_zeta_elements, local_number_of_iterations);
+    }
 
     //MPI_Allreduce(&local_riemann_zeta_sum, &riemann_zeta_sum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
 
