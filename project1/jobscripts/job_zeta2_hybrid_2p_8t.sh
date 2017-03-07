@@ -7,4 +7,4 @@
 
 cd $PBS_O_WORKDIR
 module load gcc openmpi
-mpiexec ./TMA4280LABS/project1/zeta2/hybrid/machvtest
+mpiexec ./TMA4280LABS/project1/zeta2/hybrid/zetavtest
