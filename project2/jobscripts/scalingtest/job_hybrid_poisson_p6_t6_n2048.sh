@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#PBS -N mpi_poisson_p4_t4_n2048
+#PBS -N mpi_poisson_p6_t6_n2048
 #PBS -A imf_tma4280
 #PBS -l walltime=00:10:00
-#PBS -l select=2:ncpus=20:mpiprocs=4:ompthreads=4
+#PBS -l select=6:ncpus=20:mpiprocs=6:ompthreads=6
 
 cd $PBS_O_WORKDIR
 module load gcc openmpi
