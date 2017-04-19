@@ -85,8 +85,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    print_matrix(rank, size, m, local_lenght, local_start, b);
-
     //Each process calculates the DST from its part of the matrix
     for (size_t i = 0; i < local_lenght[rank]; i++) {
         fst_(b[i], &n, z, &nn);
@@ -114,8 +112,6 @@ int main(int argc, char **argv) {
     }
 
     end = MPI_Wtime();
-
-    print_matrix(rank, size, m, local_lenght, local_start, b);
 
     real error = maximum_pointwise_error(rank, size, m,local_start, local_lenght, grid, b);
 
@@ -218,7 +214,6 @@ void transpose(int rank, int size, int* local_start, int* local_lenght, real** b
     for (size_t p = 0; p < size; p++) {
         for (size_t i = 0; i < local_lenght[rank]; i++) {
             for (size_t j = 0; j < local_lenght[p]; j++) {
-                // printf("i = %lu, j = %lu\n", i+1, j+1+local_start[p]);
                 sendbuffer[x][y] = b[i][j+local_start[p]];
                 y++;
                 if (y > m-1) {
