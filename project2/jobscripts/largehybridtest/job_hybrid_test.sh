@@ -3,7 +3,7 @@
 #PBS -N mpi_poisson_test
 #PBS -A imf_tma4280
 #PBS -l walltime=00:10:00
-#PBS -l select=4:ncpus=20:mpiprocs=6:ompthreads=6
+#PBS -l select=6:ncpus=20:mpiprocs=6:ompthreads=6
 
 cd $PBS_O_WORKDIR
 module load gcc openmpi
